@@ -20,11 +20,12 @@ set COUNT=0
 
 :: 날짜/시간 형식: YYYYMMDD_HHMMSS
 for /f "tokens=1-4 delims=/ " %%a in ("%date%") do (
-    for /f "tokens=1-2 delims=:." %%x in ("%time%") do (
+    for /f "tokens=1-2 delims=:." %%x in ("%time: =0%") do (
         set "NOWDATE=%%a%%b%%c"
         set "NOWTIME=%%x%%y"
     )
 )
+
 set "DATETIME=!NOWDATE!_!NOWTIME!"
 
 for %%i in (%PORTS%) do (
