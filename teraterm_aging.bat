@@ -10,6 +10,11 @@ set /p PORTS="Enter COM port numbers separated by spaces (e.g., 1 2 3 4 5 6 7 8)
 :: 로그 저장 경로 입력
 set /p LOGDIR="Enter directory path to save logs: "
 
+:: 디렉토리가 존재하지 않으면 생성
+if not exist "%LOGDIR%" (
+    echo [INFO] Directory "%LOGDIR%" does not exist. Creating...
+    mkdir "%LOGDIR%"
+)
 :: 화면 배치 설정 (1600x900 기준 4x2)
 set COLS=4
 set ROWS=2
